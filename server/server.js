@@ -17,7 +17,8 @@ app.use(upload());
 app.use(express.static('ico'));
 
 
-
+var port_number = server.listen(process.env.PORT || 8080);
+app.listen(port_number);
 
 
 //db.coll.find(queryDoc).skip(x).limit(y)
