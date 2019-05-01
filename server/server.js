@@ -26,7 +26,13 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
+app.get('/', (req, res) => {
+    fs.readFile('../Api_app/client/index.html', function (err, data) {
+        res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
+        res.write(data);
+        res.end();
+    });
+})
 app.get('/Galery', (req, res) => {
     db.get().collection('Galery').find().sort({_id: 1}).skip(parseInt(req.query.skip)).limit(30).toArray((err, docs) => {
         if (err) {
