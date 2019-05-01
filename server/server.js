@@ -129,7 +129,7 @@ db.connect("mongodb://AnyUser2:qweasd123zxc@kramarow-shard-00-00-f7c0f.mongodb.n
         return console.log(err);
     }
     app.listen(8080, () => {
-        console.log('app is running port 8080');
+        console.log('app is running port 8080' + process.env.PORT);
     })
 
 })
